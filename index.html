@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Math for kids</title>
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Main</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper">
+            <section class="main-section">
+                <button id="add">Addiction</button>
+                <button id="multi">Multiplication</button>
+            </section>
+            <section class="sample-section hide">
+                <div class="numbers-section">
+                    <p id="first-number"></p>
+                    <p id="sign"></p>
+                    <p id="second-number"></p>
+                    <p>=</p>
+                </div>
+                <div class="solution-section">
+                    <p id="sol-one" class="sol"></p>
+                    <p id="sol-two" class="sol"></p>
+                    <p id="sol-three" class="sol"></p>
+                </div>
+            </section>
+        </div>
+    </main>
     <footer></footer>
+    <script src="script.js"></script>
 </body>
 </html>
