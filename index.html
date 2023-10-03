@@ -9,34 +9,35 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Main</a></li>
-            </ul>
-        </nav>
+        <button class="main-button" id="main-button">Main</button>
     </header>
     <main>
         <div class="wrapper">
             <section class="main-section">
-                <button id="add">Addiction</button>
+                <button id="add">Addition</button>
                 <button id="multi">Multiplication</button>
             </section>
             <section class="sample-section hide">
-                <div class="numbers-section">
-                    <p id="first-number"></p>
-                    <p id="sign"></p>
-                    <p id="second-number"></p>
-                    <p>=</p>
+                <div class="counter">
+                    <div id="correct">0</div>
+                    <div id="incorrect">0</div>
                 </div>
-                <div class="solution-section">
-                    <p id="sol-one" class="sol"></p>
-                    <p id="sol-two" class="sol"></p>
-                    <p id="sol-three" class="sol"></p>
+                <div class="sample">
+                    <div class="numbers-section">
+                        <p id="first-number"></p>
+                        <p id="sign"></p>
+                        <p id="second-number"></p>
+                        <p>=</p>
+                    </div>
+                    <div class="solution-section">
+                        <p id="sol-one" class="sol"></p>
+                        <p id="sol-two" class="sol"></p>
+                        <p id="sol-three" class="sol"></p>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
-    <footer></footer>
     <script src="script.js"></script>
 </body>
 </html>
