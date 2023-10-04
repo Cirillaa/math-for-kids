@@ -12,6 +12,44 @@
         <button class="main-button" id="main-button">Main</button>
         <button class="main-button" id="login-button">Log In</button>
         <button class="main-button" id="registration-button">Create new account</button>
+        <section class="backdrop hide" id="login-form">
+            <div class="modal">
+                <h3>Please, enter your nickname or email and password</h3>
+                <form action="#">
+                    <div>
+                        <label for="nick">Nickname</label>
+                        <input type="text" id="nick">
+                    </div>
+                    <div>
+                        <label for="pass">Password</label>
+                        <input type="password" id="pass">
+                    </div>
+                    <button type="button" class="close-button">Close</button>
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </section>
+        <section class="backdrop hide" id="registration-form">
+            <div class="modal">
+                <h3>Please, enter your name, nickname or email and password</h3>
+                <form action="#">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div>
+                        <label for="nickname">Nickname/ email</label>
+                        <input type="text" id="nickname">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password">
+                    </div>
+                    <button type="button" class="close-button">Close</button>
+                    <button type="submit">Create new account</button>
+                </form>
+            </div>
+        </section>
     </header>
     <main>
         <div class="wrapper">
@@ -41,6 +79,7 @@
         </div>
     </main>
     <script src="script.js"></script>
+    <script src="registration.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>

@@ -114,3 +114,77 @@ body{
     border-radius: 20px;
     box-shadow: 0px 5px 10px 2px rgba(29, 85, 128, 0.2);
 }
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+    position: fixed;
+    top: 15vh;
+    left: 5%;
+    width: fit-content;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    animation: slide-down 300ms ease-out forwards;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .modal {
+        width: 40rem;
+        left: calc(50% - 20rem);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal input {
+    color: rgb(23, 22, 22);
+    font-size: 1.5rem;
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0.8rem;
+    border: 0;
+    border-bottom: 1px solid rgba(47, 42, 42, 0.6);
+    background-color: rgb(255, 255, 255, 0);
+}
+.modal label {
+    display: block;
+    color: #787474dd;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+.modal div {
+    margin-bottom: 3%;
+}
+.modal h3 {
+    margin-bottom: 10%;
+}
+.modal button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ec932f;
+    font-size: 1em;
+    margin-top: 2em;
+}
