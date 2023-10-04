@@ -96,6 +96,32 @@ function correctAnswerCounter() {
 function incorrectAnswerCounter() {
   incorrect.innerHTML = +incorrect.innerHTML + 1;
 }
+function confettiOnRightAnswer() {
+  var end = Date.now() + 1 * 1000;
+
+  var colors = ["#6CBEBF", "#E7D2CF"];
+
+  (function frame() {
+    confetti({
+      particleCount: 2,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+      colors: colors,
+    });
+    confetti({
+      particleCount: 2,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 },
+      colors: colors,
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+}
 for (let i = 0; i < solList.length; i++) {
   solList[i].addEventListener("click", function () {
     if (
@@ -108,6 +134,7 @@ for (let i = 0; i < solList.length; i++) {
     ) {
       solList[i].classList.add("right");
       correctAnswerCounter();
+      confettiOnRightAnswer();
       setTimeout(function () {
         getNumbers();
         getAnswerNumbers();
