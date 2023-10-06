@@ -157,7 +157,7 @@ body{
     }
 }
 
-.modal input {
+.inputs {
     color: rgb(23, 22, 22);
     font-size: 1.5rem;
     display: block;
@@ -166,7 +166,6 @@ body{
     padding: 0.8rem;
     border: 0;
     border-bottom: 1px solid rgba(47, 42, 42, 0.6);
-    background-color: rgb(255, 255, 255, 0);
 }
 .modal label {
     display: block;
@@ -187,4 +186,17 @@ body{
     background-color: #ec932f;
     font-size: 1em;
     margin-top: 2em;
+}
+
+.invalid {
+    background-color: #e3777a88;
+    border: #d12026;
+}
+
+#submitButton {
+    padding: 10px 15px;
+        border: none;
+        background-color: #ec932f;
+        font-size: 1em;
+        margin-top: 2em;
 }
