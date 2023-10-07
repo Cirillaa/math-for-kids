@@ -12,27 +12,27 @@
         <button class="main-button" id="main-button">Main</button>
         <button class="main-button" id="login-button">Log In</button>
         <button class="main-button" id="registration-button">Create new account</button>
-        <section class="backdrop hide" id="login-form">
+        <section class="backdrop hide" id="login-form-modal">
             <div class="modal">
                 <h3>Please, enter your nickname or email and password</h3>
-                <form action="#">
+                <form action="#" id="login-form">
                     <div>
                         <label for="nick">Nickname</label>
-                        <input type="text" id="nick">
+                        <input type="text" id="nick" class="inputs">
                     </div>
                     <div>
                         <label for="pass">Password</label>
-                        <input type="password" id="pass">
+                        <input type="password" id="pass" class="inputs">
                     </div>
                     <button type="button" class="close-button">Close</button>
                     <button type="submit">Log In</button>
                 </form>
             </div>
         </section>
-        <section class="backdrop hide" id="registration-form">
+        <section class="backdrop hide" id="registration-form-modal">
             <div class="modal">
                 <h3>Please, enter your name, nickname or email and password</h3>
-                <form action="#">
+                <form action="#" id="registration-form">
                     <div>
                         <label for="name">Name</label>
                         <input type="text" id="name" class="inputs">
@@ -45,8 +45,8 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" class="inputs">
                     </div>
-                    <button type="button" class="close-button">Close</button>
-                    <input type="submit" value="Create new account" id="submitButton"></input>
+                    <button type="button" class="close-button-reg">Close</button>
+                    <button type="submit" id="submitButton">Create new account</button>
                 </form>
             </div>
         </section>
@@ -80,6 +80,7 @@
     </main>
     <script src="script.js"></script>
     <script src="registration.js"></script>
+    <script src="login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>

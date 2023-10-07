@@ -1,27 +1,17 @@
 
-let loginButton = document.getElementById('login-button');
 let registrationButton = document.getElementById('registration-button');
-let loginForm = document.getElementById('login-form');
-let registrationForm = document.getElementById('registration-form');
-let modalCloseButtons =  document.querySelectorAll('.close-button')
+let registrationFormModal = document.getElementById('registration-form-modal');
+let registrationForm = document.getElementById('registration-form')
 
-loginButton.addEventListener('click', function() {
-    loginForm.classList.remove('hide');
-    closeModal()
-})
+
 registrationButton.addEventListener('click', function(){
-    registrationForm.classList.remove('hide');
-    closeModal()
+    registrationFormModal.classList.remove('hide');
+    let modalClose = document.querySelector('.close-button-reg');
+    modalClose.addEventListener('click', function () {
+        registrationFormModal.classList.add("hide");
+    })
 })
 
-function closeModal() {
-    for (let i = 0; i <= modalCloseButtons.length; i++) {
-      modalCloseButtons[i].addEventListener("click", function () {
-        loginForm.classList.add("hide");
-        registrationForm.classList.add("hide");
-      });
-    }
-}
 
 const isEmpty = (value) => value.trim() === "";
 
@@ -32,6 +22,8 @@ const isEmpty = (value) => value.trim() === "";
         const enteredNick = document.getElementById('nickname').value;
         const enteredPassword = document.getElementById('password').value;
 
+        const submittingState = document.createElement('p');
+
         const nameValid = !isEmpty(enteredName);
         const nickValid = !isEmpty(enteredNick);
         const passwordValid = enteredPassword.length > 6;
@@ -41,13 +33,16 @@ const isEmpty = (value) => value.trim() === "";
         const userData = {
             name: enteredName,
             nickname: enteredNick,
-            password: enteredPassword
+            password: enteredPassword,
+            rightAnswers: '',
+            wrongAnswers: ''
         }
 
         console.log(userData)
 
         const sendData = async() => {
-            
+            registrationForm.appendChild(submittingState);
+            submittingState.innerHTML = 'Sending data...'
             await fetch(
               "https://math-users-ae263-default-rtdb.firebaseio.com/users.json",
               {
@@ -55,6 +50,8 @@ const isEmpty = (value) => value.trim() === "";
                 body: JSON.stringify(userData),
               }
             );
+            submittingState.innerHTML = 'Data successfully sent!';
+            clearForm();
         }
 
         if(!formIsValid) {
@@ -65,6 +62,14 @@ const isEmpty = (value) => value.trim() === "";
                 }
             }
             return
+        }
+
+        function clearForm() {
+            let inputs = registrationForm.querySelectorAll("input");
+            for (let i = 0; i < inputs.length; i++) {
+              inputs[i].classList.remove("invalid");
+              inputs[i].value = '';
+            }
         }
 
         sendData()

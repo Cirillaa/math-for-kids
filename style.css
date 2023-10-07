@@ -162,8 +162,8 @@ body{
     font-size: 1.5rem;
     display: block;
     width: 95%;
-    margin: 0 auto;
-    padding: 0.8rem;
+    margin-right: auto;
+    padding: 0.8rem 0;
     border: 0;
     border-bottom: 1px solid rgba(47, 42, 42, 0.6);
 }
@@ -199,4 +199,8 @@ body{
         background-color: #ec932f;
         font-size: 1em;
         margin-top: 2em;
+}
+
+#registration-form p {
+    font-size: 1.5rem;
 }
