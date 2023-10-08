@@ -204,3 +204,8 @@ body{
 #registration-form p {
     font-size: 1.5rem;
 }
+
+header p {
+    text-align: center;
+    font-size: 1.5rem;
+}

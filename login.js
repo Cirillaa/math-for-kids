@@ -1,6 +1,8 @@
 let loginFormModal = document.getElementById("login-form-modal");
 let loginButton = document.getElementById("login-button");
 let loginForm = document.getElementById('login-form');
+let correctAns = document.getElementById("correct");
+let incorrectAns = document.getElementById("incorrect");
 
 loginButton.addEventListener("click", function () {
   loginFormModal.classList.remove("hide");
@@ -11,9 +13,13 @@ loginButton.addEventListener("click", function () {
 });
 
 const loadUser = [];
+let logoutButton = document.getElementById("logout-button");
+let submitState = document.createElement("p");
+loginForm.appendChild(submitState);
 
 const fetchUser = async () => {
     try {
+        submitState.innerHTML = "Send request";
         const response = await fetch('https://math-users-ae263-default-rtdb.firebaseio.com/users.json');
 
         if (!response.ok) {
@@ -32,17 +38,16 @@ const fetchUser = async () => {
                 wrongAnswers: data[key].wrongAnswers
             })
         }
+        submitState.innerHTML = 'Data sent'
     } catch(error) {
         console.log(error.message);
     }
 };
 
-const loginFormHandler = (event) => {
+const loginFormHandler = async (event) => {
     event.preventDefault();
-
-    fetchUser();
-
-    console.log(loadUser)
+    
+    await fetchUser();
 
     const enteredNick = document.getElementById('nick').value;
     const enteredPassword = document.getElementById('pass').value;
@@ -56,17 +61,30 @@ const loginFormHandler = (event) => {
     console.log(checkUser[0])
 
     if(checkUser.length === 1) {
-        let rightDataAlert = document.createElement('p');
-        rightDataAlert.innerHTML = 'Hello ' + checkUser[0].name;
-        loginForm.appendChild(rightDataAlert)
+        let loginState = document.createElement('p');
+        let header = document.querySelector('header');
+        header.appendChild(loginState);
+        loginFormModal.classList.add('hide');
+        loginButton.classList.add('hide');
+        logoutButton.classList.remove('hide');
+        loginState.innerHTML = 'Hello, ' + checkUser[0].name;
+        getAnswerData(checkUser[0]);
+        logoutButton.addEventListener('click', function () {
+            loginButton.classList.remove("hide");
+            logoutButton.classList.add("hide");
+            header.removeChild(loginState);
+        })
     }
 
     if (checkUser.length === 0) {
-        let wrongDataAlert = document.createElement('p');
-        wrongDataAlert.innerHTML = 'Wrong data! Check your nickname or password'
-        loginForm.appendChild(wrongDataAlert);
+        submitState.innerHTML = 'Wrong data! Check your nickname or password'
     }
-
 }
+
+let getAnswerData = (obj) => {
+    correctAns.innerHTML = obj.rightAnswers;
+    incorrectAns.innerHTML = obj.wrongAnswers;
+}
+
 
 loginForm.addEventListener('submit', loginFormHandler)
